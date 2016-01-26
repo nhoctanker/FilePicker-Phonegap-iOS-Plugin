@@ -15,6 +15,8 @@
 
 - (void)isAvailable:(CDVInvokedUrlCommand*)command;
 - (void)pickFile:(CDVInvokedUrlCommand*)command;
+- (void)setIPadPopupCoordinates:(CDVInvokedUrlCommand*)command;
+
 
 
 @end
