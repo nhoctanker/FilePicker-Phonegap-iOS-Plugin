@@ -110,6 +110,12 @@
     UIDocumentMenuViewController *importMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:UTIs inMode:UIDocumentPickerModeImport];
     importMenu.delegate = self;
     importMenu.popoverPresentationController.sourceView = self.viewController.view;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        NSString* iPadCoords = [self getIPadPopupCoordinates];
+        NSArray *comps = [iPadCoords componentsSeparatedByString:@","];
+        _sourceRect = [self getPopupRectFromIPadPopupCoordinates:comps];
+        
+    }
     importMenu.popoverPresentationController.sourceRect = _sourceRect;
     [self.viewController presentViewController:importMenu animated:YES completion:nil];
     
